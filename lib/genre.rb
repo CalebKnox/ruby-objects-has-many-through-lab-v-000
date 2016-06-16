@@ -6,8 +6,9 @@ class Genre
     @songs = []
   end
 
-  def add_song(song)
-    @songs << song
+  def add_song(name)
+    song = Song.new(name)
+    self.songs << song
     song.genre = self
   end
 
@@ -16,8 +17,6 @@ class Genre
   end
 
   def artists
-    @songs.collect do |song|
-      song.artist
-    end
+    self.songs.collect {|song| song.artist}
   end
 end
